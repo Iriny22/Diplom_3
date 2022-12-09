@@ -9,6 +9,11 @@ import static org.junit.Assert.assertTrue;
 public class RegistrationTest extends BaseTest {
 
     private Boolean actualResult;
+    private String name = "testUser1";
+    private String email = "test1111@yandex.com";
+    private String password = "losos123";
+    private String passwordWrong = "loso";
+
 
     @After
     public void cleanUp(){
@@ -24,7 +29,7 @@ public class RegistrationTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickRegistration();
         RegisterPage registerPage = new RegisterPage(driver);
-        registerPage.addNewUser("Testuser4","test999@yandex.com","losos123");
+        registerPage.addNewUser(name,email,password);
         loginPage.loadLoginPage();
         actualResult = loginPage.isLoginPageOpened();
         assertTrue(actualResult);
@@ -39,7 +44,7 @@ public class RegistrationTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickRegistration();
         RegisterPage registerPage = new RegisterPage(driver);
-        registerPage.addNewUser("Testuser2","test555@yandex.com","los");
+        registerPage.addNewUser(name,email,passwordWrong);
         actualResult = registerPage.IsRegistrationSuccessful();
         assertFalse(actualResult);
     }

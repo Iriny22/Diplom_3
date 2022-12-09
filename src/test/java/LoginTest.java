@@ -8,6 +8,8 @@ import static org.junit.Assert.assertTrue;
 public class LoginTest extends BaseTest {
 
     private Boolean actualResult;
+    private String email = "test888@yandex.com";
+    private String password = "losos123";
 
     @After
     public void cleanUp(){
@@ -21,7 +23,7 @@ public class LoginTest extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickLogin();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginUser("test888@yandex.com","losos123");
+        loginPage.loginUser(email,password);
         actualResult = mainPage.waitOrderButtonClickable();
         assertTrue(actualResult);
     }
@@ -34,7 +36,7 @@ public class LoginTest extends BaseTest {
         Header header = new Header(driver);
         header.clickAccountButton();
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginUser("test888@yandex.com","losos123");
+        loginPage.loginUser(email,password);
         actualResult = mainPage.waitOrderButtonClickable();
         assertTrue(actualResult);
     }
@@ -51,7 +53,7 @@ public class LoginTest extends BaseTest {
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.clickLoginLink();
         loginPage.loadLoginPage();
-        loginPage.loginUser("test888@yandex.com","losos123");
+        loginPage.loginUser(email,password);
         actualResult = mainPage.waitOrderButtonClickable();
         assertTrue(actualResult);
     }
@@ -69,7 +71,7 @@ public class LoginTest extends BaseTest {
         forgotPasswordPage.loadForgotPasswordPage();
         forgotPasswordPage.clickLoginLink();
         loginPage.loadLoginPage();
-        loginPage.loginUser("test888@yandex.com","losos123");
+        loginPage.loginUser(email,password);
         actualResult = mainPage.waitOrderButtonClickable();
         assertTrue(actualResult);
     }

@@ -8,6 +8,8 @@ import static org.junit.Assert.assertTrue;
 public class AccountTest extends BaseTest{
 
         private Boolean actualResult;
+        private String email = "test888@yandex.com";
+        private String password = "losos123";
 
         @After
         public void cleanUp(){
@@ -64,7 +66,7 @@ public class AccountTest extends BaseTest{
         header.clickAccountButton();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loadLoginPage();
-        loginPage.loginUser("test888@yandex.com","losos123");
+        loginPage.loginUser(email,password);
         mainPage.waitOrderButtonClickable();
         header.clickAccountButton();
         AccountPage accountPage = new AccountPage(driver);
