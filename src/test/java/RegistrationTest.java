@@ -1,28 +1,14 @@
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class RegistrationTest {
-    private WebDriver driver;
-    private Boolean actualResult;
+public class RegistrationTest extends BaseTest {
 
-    //настройка драйвера
-    @Before
-    public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "/Users/irida/Webdriver/bin/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        // options.addArguments("--no-sandbox", "--headless", "--disable-dev-shm-usage");
-        driver = new ChromeDriver(options);
-        driver.get(MainPage.MAIN_PAGE);
-    }
+    private Boolean actualResult;
 
     @After
     public void cleanUp(){
@@ -38,7 +24,7 @@ public class RegistrationTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickRegistration();
         RegisterPage registerPage = new RegisterPage(driver);
-        registerPage.addNewUser("Testuser4","test888@yandex.com","losos123");
+        registerPage.addNewUser("Testuser4","test999@yandex.com","losos123");
         loginPage.loadLoginPage();
         actualResult = loginPage.isLoginPageOpened();
         assertTrue(actualResult);
